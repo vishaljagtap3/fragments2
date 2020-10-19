@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.add(R.id.mainContainer, newCounterFragment, null);
+            fragmentTransaction.addToBackStack(null);
             fragmentTransaction.commit();
 
             mListCounterFragments.add(newCounterFragment);
@@ -76,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
 
             getSupportFragmentManager().beginTransaction()
                     .remove( mListCounterFragments.get(0) )
+                    .addToBackStack(null)
                     .commit();
             mListCounterFragments.remove(0);
 
